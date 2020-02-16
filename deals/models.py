@@ -1,5 +1,5 @@
 from django.db import models
-from ..insights.models import StartUp
+from start_ups.models import StartUp
 
 class FundingInfo(models.Model):
     start_up = models.ForeignKey(StartUp, on_delete=models.CASCADE, related_name="start_up")
