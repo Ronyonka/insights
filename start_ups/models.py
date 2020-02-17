@@ -11,8 +11,8 @@ class StartUp(models.Model):
     hq_country = models.CharField(max_length=80, null=False, blank=False)
     founded_date = models.DateField()
     sector = models.CharField(max_length=80, null=False, blank=True)
-    last_funding_amount = models.FloatField()
-    total_funding_amount = models.FloatField()
+    last_funding_amount = models.FloatField(null=True, blank=True)
+    total_funding_amount = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return self.company_name
