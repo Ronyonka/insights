@@ -28,6 +28,7 @@
     </select>
 </div>
 <div class="table" style="margin-top:60px; padding-left: 10%; padding-right: 10%;">
+    {% if companies %}
     <table>
         <tr>
           <th>Company Name</th>
@@ -37,6 +38,19 @@
           <th>Sector</th>
           <th>Total Funding Amount (Million USD)</th>
         </tr>
+        <tr>
+            {% for company in companies %}
+            <td style="font-weight: 400;">{{company.company_name}}</td>
+            <td style="font-weight: 400;"><a href={{company.company_website}} target="_blank">Visit Website</a> </td>
+            <td style="font-weight: 400;">{{company.hq_country}}</td>
+            <td style="font-weight: 400;">{{company.founded_date}}</td>
+            <td style="font-weight: 400;">{{company.sector}}</td>
+            <td style="font-weight: 400;">{{company.total_funding_amount}}</td>
+            {% endfor %}
+        </tr>
     </table>
+    {% else %}
+    <h1 style="color:red;">No dataset</h1>
+    {% endif %}
 </div>
 {% endblock%}
