@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="padding-left: 10%; padding-right: 10%;">{{company.company_name}}</h1>
+<div class="filters" style="margin-top:30px; padding-left: 10%; padding-right: 10%;">
+    <span class="filter-item" style="font-weight: 500; margin-right: 20px; background: #B2C9AC; padding:6px; color: white; border-radius: 10px;">{{company.sector}}</span>
+    <span class="filter-item" style="font-weight: 500; margin-right: 20px; background: #B2C9AC;padding:6px;color: white; border-radius: 10px;">{{company.hq_country}}</span>
+    <span class="filter-item" style="font-weight: 500; background: #B2C9AC;padding:6px;color: white; border-radius: 10px;">{{company.founded_date}}</span>
+</div>
+<p style="margin-top:40px; font-weight: 500; padding-left: 10%; padding-right: 10%;">{{company.description}}</p>
+{% endblock %}
