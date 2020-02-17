@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 
 class StartUp(models.Model):
@@ -16,5 +17,11 @@ class StartUp(models.Model):
 
     def __str__(self):
         return self.company_name
+
+    def get_founded_year(self):
+        a = self.founded_date
+        datee = datetime.datetime.strptime(a, "%Y-%m-%d")
+        return datee.year
+
 
 
