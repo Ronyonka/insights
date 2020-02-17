@@ -25,6 +25,11 @@ class FundingInfo(models.Model):
         self.start_up.save()
         super(FundingInfo, self).save(*args, **kwargs)
 
+    def get_start_up(self):
+        company = self.start_up.company_name
+        funding = FundingInfo.objects.filter(start_up__company_name=company).order_by('funded_date')
+        return funding
+
     def delete(self):
         company = self.start_up.company_name
         funding = FundingInfo.objects.filter(start_up__company_name=company).order_by('funded_date')
