@@ -7,4 +7,38 @@
     <span class="filter-item" style="font-weight: 500; background: #B2C9AC;padding:6px;color: white; border-radius: 10px;">{{company.founded_date}}</span>
 </div>
 <p style="margin-top:40px; font-weight: 500; padding-left: 10%; padding-right: 10%;">{{company.description}}</p>
+
+{% if funding %}
+<div style="margin-top:60px; padding-left: 10%; padding-right: 10%;">
+    <h2 >{{company.company_name}} Funding Data</h2>
+    <p style="margin-top:30px;font-weight: 400;"><b>Latest Funding: </b>${{company.last_funding_amount}} Million</p>
+    <p style="font-weight: 400;"><b>Total Funding: </b>${{company.total_funding_amount}} Million</p>
+    <div id="chart" style="margin-top:30px;"></div>
+</div>
+
+{% else %}
+<h1 style="color: red;">No funding data</h1>
+{% endif %}
+{% endblock %}
+{% block extrascripts%}
+<script>
+var chart = c3.generate({
+    data: {
+        // iris data from R
+        columns: [
+        {% for i in funding %}
+        {% if forloop.last %}
+        ["{{i.investor_name}}", "{{i.total_funding_round}}"]
+        {% else %}
+        ["{{i.investor_name}}", "{{i.total_funding_round}}"],
+        {% endif %}
+            {% endfor %}
+        ],
+        type : 'pie',
+        onclick: function (d, i) { console.log("onclick", d, i); },
+        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+    }
+});
+</script>
 {% endblock %}
