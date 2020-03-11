@@ -3,7 +3,10 @@ from deals.models import FundingInfo
 from start_ups.models import StartUp
 
 def do_this(request):
-    companies = StartUp.objects.all()
+    try:
+        companies = StartUp.objects.all()
+    except StartUp.DoesNotExist:
+        companies = []
     context = {
         'companies': companies
     }
