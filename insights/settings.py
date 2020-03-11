@@ -94,6 +94,8 @@ DATABASES = {
     }
 }
 
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -144,3 +146,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
+# This is new
+del DATABASES['default']['OPTIONS']['sslmode']
