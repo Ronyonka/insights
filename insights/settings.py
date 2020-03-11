@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # App imports
     'home',
+    'start_ups',
     'deals',
 ]
 

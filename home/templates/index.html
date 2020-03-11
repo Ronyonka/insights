@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="text-align: center; margin-bottom: 40px;">Companies Database</h1>
+<p style="font-weight: 500; padding-left: 10%; padding-right: 10%;">Our Companies Database tracks thousands of technology companies across Africa including detail on funding raised. The database currently contains over 650 start-ups and each month our analysts will be pushing new sectors and analysis live.</p>
+<div class="input-section" style="margin-top:60px; padding-left: 10%; padding-right: 10%;">
+    <label for="company-name" style="margin: 0px">Company Name</label><br>
+    <input id="company-name" type="search" placeholder="Company Name">
+    
+    <label for="hq-country" style="margin: 0px">HQ Country</label>
+    <select class="custom-select" id="hq-country">
+        <option>Here </option>
+        <option>There </option>
+        <option>Everywhere </option>
+    </select>
+
+    <label for="Year-founded" style="margin: 0px">Year Founded</label>
+    <select class="custom-select" id="Year-founded">
+        <option>Here </option>
+        <option>There </option>
+        <option>Everywhere </option>
+    </select>
+
+    <label for="category" style="margin: 0px">Category</label>
+    <select class="custom-select" id="category">
+        <option>Here </option>
+        <option>There </option>
+        <option>Everywhere </option>
+    </select>
+</div>
+<div class="table" style="margin-top:60px; padding-left: 10%; padding-right: 10%;">
+    {% if companies %}
+    <table>
+        <tr>
+          <th>Company Name</th>
+          <th>Website</th>
+          <th>HQ Country</th>
+          <th>Year Founded</th>
+          <th>Sector</th>
+          <th>Total Funding Amount (Million USD)</th>
+        </tr>
+        <tr>
+            {% for company in companies %}
+            <td style="font-weight: 400;"> <a href="/{{company.company_name}}">{{company.company_name}}</a></td>
+            <td ><a style="font-weight: 500;" href={{company.company_website}} target="_blank">Visit Website</a> </td>
+            <td style="font-weight: 400;">{{company.hq_country}}</td>
+            <td style="font-weight: 400;">{{company.founded_date}}</td>
+            <td style="font-weight: 400;">{{company.sector}}</td>
+            <td style="font-weight: 400;">{{company.total_funding_amount}}</td>
+            {% endfor %}
+        </tr>
+    </table>
+    {% else %}
+    <h1 style="color:red;">No dataset</h1>
+    {% endif %}
+</div>
+{% endblock%}
