@@ -46,5 +46,3 @@ class FundingInfo(models.Model):
     # def last_funding_round(self):
         
     #     return self.save()
-
-    

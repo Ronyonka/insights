@@ -10,8 +10,13 @@ def do_this(request):
     return render(request, 'index.html', context)
 
 def company_profile(request, company_name):
-    company = StartUp.objects.get(company_name=company_name)
-    funding = FundingInfo.objects.all().filter(start_up__company_name=company.company_name)
+    try:
+        company = StartUp.objects.get(company_name=company_name)
+        funding = FundingInfo.objects.all().filter(start_up__company_name=company.company_name)
+    except StartUp.DoesNotExist:
+        company = []
+        funding = []
+    
     context = {
         'company':company,
         'funding':funding
