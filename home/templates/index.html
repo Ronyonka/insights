@@ -41,7 +41,7 @@
         {% for company in companies %}
         <tr>
             
-            <td style="font-weight: 400;"> <a href="/{{company.company_name}}">{{company.company_name}}</a></td>
+            <td style="font-weight: 400;"> <a href="company/{{company.company_name}}">{{company.company_name}}</a></td>
             <td ><a style="font-weight: 500;" href={{company.company_website}} target="_blank">Visit Website</a> </td>
             <td style="font-weight: 400;">{{company.hq_country}}</td>
             <td style="font-weight: 400;">{{company.founded_date}}</td>
