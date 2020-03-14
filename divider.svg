@@ -1,0 +1,5 @@
+<svg version="1.1" styel="width: 100%;bottom: -1px;position: absolute;transform: translatex(-50%);x: 0px;y: 0px;" x="0px" y="0px" width="240px" height="24px" viewBox="0 0 240 24" enable-background="new 0 0 240 24" xml:space="preserve" preserveAspectRatio="none">
+		<path fill="#ffffff" fill-opacity="0.25" d="M0,24h240V0L0,11.26V24z"></path>
+		<path fill="#ffffff" d="M240,24H0V11.26L240,24z"></path>
+		<path fill="#ffffff" fill-opacity="0.5" d="M240,24H0V11.26h240V24z"></path>
+		</svg>

@@ -1,31 +1,52 @@
 {% extends 'base.html' %}
+{% block extracss%}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+{% endblock extracss%}
 {% block content %}
 <h1 style="text-align: center; margin-bottom: 40px;">Companies Database</h1>
 <p style="font-weight: 500; padding-left: 10%; padding-right: 10%;">Our Companies Database tracks thousands of technology companies across Africa including detail on funding raised. The database currently contains over 650 start-ups and each month our analysts will be pushing new sectors and analysis live.</p>
 <div class="input-section" style="margin-top:60px; padding-left: 10%; padding-right: 10%;">
-    <label for="company-name" style="margin: 0px">Company Name</label><br>
-    <input id="company-name" type="search" placeholder="Company Name">
+    <form action="POST" class="form-control">
+    <label for="company-name" style="margin: 0px">Company Name</label>
+    <input id="company-name form-control" type="search" placeholder="Company Name">
     
     <label for="hq-country" style="margin: 0px">HQ Country</label>
-    <select class="custom-select" id="hq-country">
+    <select class="custom-select form-control" id="hq-country">
         <option>Here </option>
         <option>There </option>
         <option>Everywhere </option>
     </select>
 
     <label for="Year-founded" style="margin: 0px">Year Founded</label>
-    <select class="custom-select" id="Year-founded">
+    <select class="custom-select form-control" id="Year-founded">
         <option>Here </option>
         <option>There </option>
         <option>Everywhere </option>
     </select>
 
     <label for="category" style="margin: 0px">Category</label>
-    <select class="custom-select" id="category">
+    <select class="custom-select form-control" id="category">
         <option>Here </option>
         <option>There </option>
         <option>Everywhere </option>
     </select>
+</form>
 </div>
 <div class="table" style="margin-top:60px; padding-left: 10%; padding-right: 10%;">
     {% if companies %}

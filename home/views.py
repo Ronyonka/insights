@@ -10,7 +10,7 @@ def do_this(request):
     context = {
         'companies': companies
     }
-    return render(request, 'index.html', context)
+    return render(request, 'databases.html', context)
 
 def company_profile(request, company_name):
     try:
